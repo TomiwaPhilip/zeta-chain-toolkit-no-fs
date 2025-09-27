@@ -1,6 +1,8 @@
-import fs from "fs";
+// import fs from "fs";
 
 import { handleError } from "./handleError";
+
+const fs: any = {}
 
 /**
  * Safely reads a file with proper error handling
@@ -13,7 +15,7 @@ export const safeReadFile = (
   encoding: BufferEncoding = "utf-8"
 ): string => {
   try {
-    return fs.readFileSync(path, { encoding });
+    return ''//fs.readFileSync(path, { encoding });
   } catch (error) {
     handleError({
       context: `Failed to read file at ${path}`,
@@ -34,7 +36,7 @@ export const safeReadFile = (
 export const safeWriteFile = (
   path: string,
   data: string | Buffer | object,
-  options?: fs.WriteFileOptions
+  options?: any
 ): void => {
   try {
     // Handle objects by converting to JSON
